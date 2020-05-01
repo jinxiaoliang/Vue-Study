@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		[v-cloak] {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-clock>{{}}</div>
+
+	<script src="js/vue.min.js"></script>
+	<script>
+		/*
+			1.提供样式
+			[v-cloak] {
+				display:none
+			}
+			2.在插值表达式所在的标签中添加v-cloak指令
+		*/
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				msg: 
+			}
+		})
+	</script>
+</body>
+</html>

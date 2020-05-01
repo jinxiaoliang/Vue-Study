@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<div>{{msg}}</div>
+		<input type="text" :value="msg" @input='msg=$event.target.value'>
+	</div>
+
+	<script src="js/vue.min.js"></script>
+	<script>
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				msg: 'hello',
+			},
+			methods: {
+			}
+		})
+	</script>
+</body>
+</html>

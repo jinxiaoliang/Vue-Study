@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<div v-text="num"></div>
+		<button v-on:click="num++">点击</button>
+	</div>
+	<script src="js/vue.min.js"></script>
+	<script>
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				num: 0
+			}
+		})
+	</script>
+</body>
+</html>

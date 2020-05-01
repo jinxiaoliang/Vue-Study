@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+
+		* {
+			padding: 0;
+			margin: 0
+		}
+		#app {
+			width: 500px;
+			margin: 10px auto
+		}
+		.tab ul {
+			overflow: hidden;
+		}
+		.tab ul li {
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+			cursor: pointer;
+			border: 1px solid blue;
+			margin-right: -1px
+		}
+		.active {
+			background-color: orange;
+		}
+		.tab div {
+			width: 500px;
+			height: 300px;
+			display: none;
+		}
+		.tab .current {
+			display: block
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<div class="tab">
+			<ul>
+				<li @click='change(index)' :class='currentIndex==index?"active":""' :key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
+			</ul>
+			<div :class='currentIndex==index?"current":""' v-for='(item,index) in list'>
+				<img :src="item.path" alt="">
+			</div>
+		</div>
+	</div>
+
+	<script src="js/vue.min.js"></script>
+	<script>
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				currentIndex: 0,//当前选项卡的索引
+				list: [{
+					id: 1,
+					title: 'apple',
+					path: 'img/apple.png'
+				},{
+					id: 2,
+					title: 'orange',
+					path: 'img/orange.png'
+				},{
+					id: 3,
+					title: 'lemon',
+					path: 'img/lemon.png'
+				}]
+			},
+			methods: {
+				//实现选项卡实现切换操作
+				change: function(index) {
+					this.currentIndex = index
+				}
+			}
+		})
+	</script>
+</body>
+</html>
