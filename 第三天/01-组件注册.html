@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+	</div>
+
+	<script src="js/vue.min.js"></script>
+	<script>
+
+		Vue.component('button-counter',{
+			data: function() {
+				return {
+					counter: 0
+				}
+			},
+			template:'<button @click="counter++">点击了{{this.counter}}次</button>'
+		})
+		let vm = new Vue({
+			el: "#app",
+			data: {
+
+			}
+		})
+	</script>
+</body>
+</html>

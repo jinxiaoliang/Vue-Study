@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="" id="" v-model.number='age'>
+		<input type="text" name="" id="" v-model.trim='info'>
+		<input type="text" name="" id="" v-model.lazy='msg'>
+		<div>{{ msg }}</div>
+		<button @click='handle'>提交</button>
+	</div>
+
+	<script src="js/vue.min.js"></script>
+	<script>
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				age: '',
+				info: '',
+				msg: ''
+			},
+			methods: {
+				handle: function() {
+					console.log(this.age*2);
+					console.log(this.info.length);
+
+				}
+			}
+		})
+	</script>
+</body>
+</html>

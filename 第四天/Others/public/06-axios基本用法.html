@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="/js/axios.js"></script>
+	<script>
+		axios('http://localhost:3000/adata').then(ret => {
+			console.log(ret);
+			console.log(ret.data);
+		})
+	</script>
+</body>
+</html>

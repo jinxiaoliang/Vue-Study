@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<div>{{fmsg}}</div>
+		<item-com :title='fmsg'></item-com>
+	</div>
+
+	<script src="js/vue.js"></script>
+	<script>
+
+		Vue.component('item-com',{
+			props: ['title'],
+			data: function() {
+				return {
+					smsg: '子组件的内容'
+				}
+			},
+			template: '<div>{{smsg + "---" + title}}</div>'
+		});
+
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				fmsg: '父组件的内容'
+			}
+		})
+	</script>
+</body>
+</html>

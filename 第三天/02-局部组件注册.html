@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<hello-jin></hello-jin>
+		<hello-fu></hello-fu>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var HelloJin = {
+			data: function() {
+				return {
+					msg: 'HelloJin'
+				}
+			},
+			template: '<div>{{msg}}</div>'
+		}
+		var HelloFu = {
+			data: function() {
+				return {
+					msg: 'HelloJin'
+				}
+			},
+			template: '<div>{{msg}}</div>'
+		}
+
+		var vm = new Vue({
+			el: "#app",
+			components: {
+				'hello-jin': HelloJin,
+				'hello-fu': HelloFu
+			}
+		})
+	</script>
+</body>
+</html>

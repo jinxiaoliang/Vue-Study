@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		fetch('http://localhost:3000/book',{
+			method: 'post',
+			body: 'uname=lisi&pwd=123',
+			headers: {
+				'Content-Type':'application/x-www-form-urlencoded'
+			}
+		}).then(data => {
+			return data.text()
+		}).then(data => {
+			console.log(data)
+		})
+	</script>
+</body>
+</html>

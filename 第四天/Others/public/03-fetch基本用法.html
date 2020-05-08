@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		fetch('http://localhost:3000/fdata').then(data => {
+			return data.text()
+		}).then(ret => {
+			console.log(ret)
+		})
+	</script>
+</body>
+</html>

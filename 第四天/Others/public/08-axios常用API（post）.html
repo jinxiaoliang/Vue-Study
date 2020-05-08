@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="https://cdn.bootcss.com/url-search-params/0.10.0/url-search-params.js"></script>
+	<script src="/js/axios.js"></script>
+	<script>
+		// axios.post('http://localhost:3000/post',{
+		// 	uname: 'lisi',
+		// 	age: 12
+		// }).then(ret => {
+		// 	console.log(ret.data)
+		// })
+		const params = new URLSearchParams();
+		params.append('uname','lisi');
+		params.append('age','20');
+		axios.post('http://localhost:3000/axios',params).then(ret => {
+			console.log(ret.data)
+		})
+	</script>
+</body>
+</html>

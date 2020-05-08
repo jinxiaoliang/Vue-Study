@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+</head>
+<body>
+	<script>
+		var p = new Promise((resolve,reject) => {
+			//这里用于实现异步任务
+			setTimeout(function() {
+				var flag = true;
+				if(flag) {
+					//正常情况
+					resolve('hello');
+				} else {
+					//错误情况
+					reject('error')
+				}
+			}, 1000)
+		});
+
+		p.then(function(ret) {
+			//正常情况信息
+			console.log(ret);
+		},function(info) {
+			//错误情况信息
+			console.log(info);
+		})
+	</script>
+</body>
+</html>

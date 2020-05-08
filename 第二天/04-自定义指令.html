@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="" id="" v-color='msg'>
+	</div>
+	<script src="js/vue.min.js"></script>
+	<script>
+
+		Vue.directive('color',{
+			bind: function(el,binding) {
+				el.style.backgroundColor = binding.value.color;
+			}
+		})
+		let vm = new Vue({
+			el: "#app",
+			data: {
+				msg: {
+					color: 'orange'
+				}
+			}
+		})
+	</script>
+</body>
+</html>
