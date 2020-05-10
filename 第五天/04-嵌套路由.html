@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<router-link to='/foo'>foo</router-link>
+		<router-link to='/bar'>bar</router-link>
+
+		<router-view></router-view>
+	</div>
+	<script>
+		const Foo = { template: '<div>Foo组件</div>' }
+		const Bar = { template: `
+			<div>
+				<h1>Bar组件</h1>
+
+				<router-link to='/bar/tab1'>tab1</router-link>
+				<router-link to='/bar/tab2'>tab2</router-link>
+
+				<router-view></router-view>
+			</div>
+
+			` }
+		const Tab1 = {template: '<h1>Tab1</h1>'}
+		const Tab2 = {template: '<h1>Tab2</h1>'}
+
+		//配置路由规则
+		const routes = [
+		  { path: '/foo', component: Foo },
+		  { path: '/bar',
+		  component: Bar,
+		  children:[
+		  {path: '/bar/tab1', component: Tab1},
+		  {path: '/bar/tab2', component: Tab2}
+		  ]
+		  }
+		]
+		//创建路由实例
+		const router = new VueRouter({
+		  routes
+		})
+		//挂载
+		const vm = new Vue({
+		  router
+		}).$mount('#app')
+	</script>
+</body>
+</html>

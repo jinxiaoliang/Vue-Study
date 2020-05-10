@@ -3,8 +3,96 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		[v-cloak] {
+			display: none
+		}
+
+		#app {
+			width: 500px;
+			height: 500px;
+		}
+		#app nav {
+			width: 100%;
+			display: flex;
+		}
+		#app a{
+			text-decoration: none;
+			padding: 0 40px
+		}
+	</style>
+	<div id="app" v-cloak>
+		<div id="nav">
+			<a :key ="item.id" v-for="item in aA" :href="item.a">{{item.c}}</a>
+		</div>
+		<component :is="comName" style="text-align: center"></component>
+	</div>
 </head>
 <body>
-	
+	<script src="js/vue.js"></script>
+	<script>
+		var zy = {
+			template: `<div>主页信息</div>`
+		}
+		var kj = {
+			template: `<div>科技信息</div>`
+		}
+		var cj = {
+			template: `<div>财经信息</div>`
+		}
+		var yl = {
+			template: `<div>娱乐信息</div>`
+		}
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				aA:[{
+					id: 1,
+					a: "#/zy",
+					c: "主页"
+				},{
+					id: 2,
+					a: "#/kj",
+					c: "科技"
+				},{
+					id: 3,
+					a: "#/cj",
+					c: "财经"
+				},{
+					id: 4,
+					a: "#/yl",
+					c: "娱乐"
+				}],
+				comName: 'zy'
+			},
+			components: {
+				'zy':zy,
+				'kj':kj,
+				'cj':cj,
+				'yl':yl
+			}
+		});
+		window.onhashchange = function() {
+			switch(location.hash.slice(1)) {
+				case '/zy':
+					vm.comName = 'zy'
+				break;
+				case '/kj':
+					vm.comName = 'kj'
+				break;
+				case '/cj':
+					vm.comName = 'cj'
+				break;
+				case '/yl':
+					vm.comName = 'yl'
+				break;
+			}
+		}
+	</script>
 </body>
 </html>
